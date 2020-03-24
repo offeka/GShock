@@ -1,2 +1,2 @@
 # GShock
-existence is pain
+An exercise in design and blazor
