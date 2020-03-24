@@ -1,7 +1,7 @@
 ﻿using System;
 using GShock.Common.DTO;
 
-namespace GShock.Common.Abstarct
+namespace GShock.Common.Abstract
 {
     public interface IClockButton
     {
