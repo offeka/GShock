@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShock.Common", "GShock.Common\GShock.Common.csproj", "{07A060A0-5735-49C7-9FAA-7021A56D014A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GShock.UI", "GShock.UI\GShock.UI.csproj", "{0C872099-5564-48B4-8C3D-B5E873FCC58B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{07A060A0-5735-49C7-9FAA-7021A56D014A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07A060A0-5735-49C7-9FAA-7021A56D014A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07A060A0-5735-49C7-9FAA-7021A56D014A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C872099-5564-48B4-8C3D-B5E873FCC58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C872099-5564-48B4-8C3D-B5E873FCC58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C872099-5564-48B4-8C3D-B5E873FCC58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C872099-5564-48B4-8C3D-B5E873FCC58B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
