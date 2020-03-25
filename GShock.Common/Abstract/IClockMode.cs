@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GShock.Common.Abstract
 {
@@ -15,6 +16,9 @@ namespace GShock.Common.Abstract
         /// <summary>
         /// Called when the mode exits
         /// </summary>
-        void OnEnd();
+        public void OnEnd()
+        {
+            Console.WriteLine($"Mode {Title} is now closing");
+        }
     }
 }
