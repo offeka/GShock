@@ -1,0 +1,19 @@
+﻿@using GShock.BLL.Modes
+@inject TimerMode Mode
+@page "/Timer"
+
+<h2 class="text-center border rounded text-muted clock-time">@DisplayTime()</h2>
+
+@functions
+{
+    private string DisplayTime()
+    {
+        return Mode.TimerState.ToString(@"hh\:mm\:ss\.ff");
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Mode.OnChanged += async () => { await InvokeAsync(StateHasChanged); };
+    }
+}

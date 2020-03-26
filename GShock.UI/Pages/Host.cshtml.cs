@@ -6,7 +6,6 @@ namespace GShock.UI.Pages
     {
         public void OnGet()
         {
-            
         }
     }
 }

@@ -7,6 +7,8 @@ namespace GShock.Common.Abstract
     {
         string Title { get; }
 
+        event Action? OnChanged;
+
         /// <summary>
         /// Called when you enter the mode from the controller
         /// </summary>

@@ -31,3 +31,7 @@ button {
     width: 50%;
     margin-left: auto
 }
+
+.btn-dark {
+    margin: auto;
+}

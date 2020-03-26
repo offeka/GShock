@@ -24,7 +24,7 @@
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\GShock.BLL\GShock.BLL.csproj" />
+        <ProjectReference Include="..\GShock.BLL\GShock.BLL.csproj" />
     </ItemGroup>
 
 </Project>

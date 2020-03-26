@@ -1,18 +1,16 @@
 ﻿@using GShock.BLL.Modes
 @inject ClockMode Mode
+@page "/Clock"
 
 <h2 class="text-center border rounded text-muted clock-time">@Mode.Time.ToLongTimeString()</h2>
 
 @functions
 {
     public string DisplayTime => Mode.Time.ToLongTimeString();
-    
+
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        Mode.OnChanged += async () =>
-        {
-            await InvokeAsync(StateHasChanged);
-        };
+        Mode.OnChanged += async () => { await InvokeAsync(StateHasChanged); };
     }
 }

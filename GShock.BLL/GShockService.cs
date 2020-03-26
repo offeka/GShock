@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GShock.Common.Abstract;
 using GShock.Common.DTO;
@@ -23,19 +24,12 @@ namespace GShock.BLL
             _modes.Peek().OnStart(Buttons);
         }
 
-        private void NextMode(long duration)
+        private void NextMode(TimeSpan duration)
         {
             var currentMode = _modes.Dequeue();
             currentMode.OnEnd(Buttons);
-            if (_modes.TryPeek(out IClockMode result))
-            {
-                result.OnStart(Buttons);
-            }
-            else
-            {
-                currentMode.OnStart(Buttons);
-                _modes.Enqueue(currentMode);
-            }
+            _modes.Enqueue(currentMode);
+            CurrentMode.OnStart(Buttons);
         }
     }
 }
