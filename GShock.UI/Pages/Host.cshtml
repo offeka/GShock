@@ -10,7 +10,6 @@
 
 <html>
 <head>
-    <meta http-equiv="refresh" content="5">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/site.css"/>
@@ -21,15 +20,13 @@
     <title>GShock</title>
 </head>
 <body>
-<div>
-    <div id="app">
-        <app>
-            @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
-        </app>
+<div id="app" class="h-100">
+    <app>
+        @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
+    </app>
 
-    </div>
-
-    <script src="_framework/blazor.server.js"></script>
 </div>
+
+<script src="_framework/blazor.server.js"></script>
 </body>
 </html>

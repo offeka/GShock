@@ -20,13 +20,22 @@ namespace GShock.BLL
             Buttons = buttons.ToList();
             Buttons.FirstOrDefault(button => button.Type == ButtonType.S)?.Subscribe(NextMode);
             _modes = new Queue<IClockMode>(modes);
+            _modes.Peek().OnStart(Buttons);
         }
 
-        private void NextMode(int duration)
+        private void NextMode(long duration)
         {
             var currentMode = _modes.Dequeue();
-            currentMode.OnEnd();
-            _modes.Peek().OnStart(Buttons.ToList());
+            currentMode.OnEnd(Buttons);
+            if (_modes.TryPeek(out IClockMode result))
+            {
+                result.OnStart(Buttons);
+            }
+            else
+            {
+                currentMode.OnStart(Buttons);
+                _modes.Enqueue(currentMode);
+            }
         }
     }
 }

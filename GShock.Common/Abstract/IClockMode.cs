@@ -11,14 +11,11 @@ namespace GShock.Common.Abstract
         /// Called when you enter the mode from the controller
         /// </summary>
         /// <param name="buttons">The clock default buttons</param>
-        void OnStart(ICollection<IClockButton> buttons);
+        void OnStart(IEnumerable<IClockButton> buttons);
 
         /// <summary>
         /// Called when the mode exits
         /// </summary>
-        public void OnEnd()
-        {
-            Console.WriteLine($"Mode {Title} is now closing");
-        }
+        public void OnEnd(IEnumerable<IClockButton> buttons);
     }
 }
