@@ -9,26 +9,26 @@ namespace GShock.BLL.Buttons
     public class Button : IClockButton
     {
         public ButtonType Type { get; }
-        private Stack<Action<long>> _actionStore;
+        private Stack<Action<TimeSpan>> _actionStore;
 
         public Button(ButtonType type)
         {
-            _actionStore = new Stack<Action<long>>();
+            _actionStore = new Stack<Action<TimeSpan>>();
             Type = type;
         }
 
-        public void Subscribe(Action<long> buttonAction) => _actionStore.Push(buttonAction);
+        public void Subscribe(Action<TimeSpan> buttonAction) => _actionStore.Push(buttonAction);
 
-        public void Unsubscribe(Action<long> buttonAction)
+        public void Unsubscribe(Action<TimeSpan> buttonAction)
         {
-            List<Action<long>> actionList = _actionStore.ToList();
+            List<Action<TimeSpan>> actionList = _actionStore.ToList();
             actionList.ToList().Remove(buttonAction);
-            _actionStore = new Stack<Action<long>>(actionList);
+            _actionStore = new Stack<Action<TimeSpan>>(actionList);
         }
 
-        public void OnClick(long duration)
+        public void OnClick(TimeSpan duration)
         {
-            foreach (Action<long> action in _actionStore)
+            foreach (Action<TimeSpan> action in _actionStore)
             {
                 action(duration);
             }

@@ -10,11 +10,20 @@ namespace GShock.BLL.Modes
 {
     public class ClockMode : IClockMode
     {
-        private const long UPDATE_INTERVAL = 100;
+        private const int UPDATE_INTERVAL = 100;
+        private DateTime _time;
 
         public string Title => "Clock";
 
-        public DateTime Time { get; private set; }
+        public DateTime Time
+        {
+            get => _time;
+            private set
+            {
+                _time = value;
+                OnChanged?.Invoke();
+            }
+        }
 
         public event Action? OnChanged;
 
@@ -25,11 +34,7 @@ namespace GShock.BLL.Modes
             {
                 Interval = UPDATE_INTERVAL, AutoReset = true
             };
-            updateTimer.Elapsed += (sender, args) =>
-            {
-                Time = Time.AddMilliseconds(UPDATE_INTERVAL);
-                OnChanged?.Invoke();
-            };
+            updateTimer.Elapsed += (sender, args) => { Time = Time.AddMilliseconds(UPDATE_INTERVAL); };
             updateTimer.Start();
             Time = Now;
         }
@@ -51,10 +56,10 @@ namespace GShock.BLL.Modes
         }
 
 
-        private void AddHour(long duration) => Time = Time.AddHours(1);
+        private void AddHour(TimeSpan duration) => Time = Time.AddHours(1);
 
-        private void AddMinute(long duration) => Time = Time.AddMinutes(1);
+        private void AddMinute(TimeSpan duration) => Time = Time.AddMinutes(1);
 
-        private void AddSecond(long duration) => Time = Time.AddSeconds(1);
+        private void AddSecond(TimeSpan duration) => Time = Time.AddSeconds(1);
     }
 }
