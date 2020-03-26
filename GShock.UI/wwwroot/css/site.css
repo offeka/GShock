@@ -1,7 +1,33 @@
-.gshock-header {
+.text-center {
     text-align: center;
 }
 
-.gshock-title{
-    text-align: center;
+.display {
+    background-color: #002837;
+}
+
+html, body {
+    height: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.clock-time {
+    width: 50%;
+    margin: auto;
+}
+
+.row-content {
+    width: 100%;
+}
+
+.btn-col{
+    flex-direction: column;
+}
+
+button {
+    width: 50%;
+    margin-left: auto
 }

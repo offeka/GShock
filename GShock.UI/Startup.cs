@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GShock.BLL;
+using GShock.BLL.ExtensionMethods;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +29,9 @@ namespace GShock.UI
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddButtons();
+            services.AddModes();
+            services.AddSingleton<GShockService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
