@@ -1,0 +1,20 @@
+﻿@using GShock.BLL.Modes
+@inject StopperMode Mode
+@page "/Stopper"
+
+<h2 class="text-center border rounded text-muted clock-time">@DisplayResult()</h2>
+@foreach (var result in Mode.Results)
+{
+    <li>@result.ToString(@"hh\:mm\:ss\.ff")</li>
+}
+
+@code
+{
+    private string DisplayResult() => Mode.StopperState.ToString(@"hh\:mm\:ss\.ff");
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Mode.OnChanged += async () => { await InvokeAsync(StateHasChanged); };
+    }
+}

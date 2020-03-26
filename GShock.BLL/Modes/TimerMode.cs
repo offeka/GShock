@@ -49,7 +49,7 @@ namespace GShock.BLL.Modes
             var buttonsCopy = buttons.ToList();
             buttonsCopy.FirstOrDefault(button => button.Type == ButtonType.A)?.Subscribe(AddMinute);
             buttonsCopy.FirstOrDefault(button => button.Type == ButtonType.B)?.Subscribe(AddHour);
-            buttonsCopy.FirstOrDefault(button => button.Type == ButtonType.C)?.Subscribe(OnAClick);
+            buttonsCopy.FirstOrDefault(button => button.Type == ButtonType.C)?.Subscribe(OnCClick);
         }
 
         public void OnEnd(IEnumerable<IClockButton> buttons)
@@ -57,7 +57,7 @@ namespace GShock.BLL.Modes
             var buttonsCopy = buttons.ToList();
             buttonsCopy.FirstOrDefault(button => button.Type == ButtonType.A)?.Unsubscribe(AddMinute);
             buttonsCopy.FirstOrDefault(button => button.Type == ButtonType.B)?.Unsubscribe(AddHour);
-            buttonsCopy.FirstOrDefault(button => button.Type == ButtonType.C)?.Unsubscribe(OnAClick);
+            buttonsCopy.FirstOrDefault(button => button.Type == ButtonType.C)?.Unsubscribe(OnCClick);
         }
 
         private void AddMinute(TimeSpan duration)
@@ -70,7 +70,7 @@ namespace GShock.BLL.Modes
             TimerState = TimerState.Add(new TimeSpan(0, 1, 0, 0));
         }
 
-        private void OnAClick(TimeSpan duration)
+        private void OnCClick(TimeSpan duration)
         {
             if (duration.TotalSeconds >= LONG_HOLD_TIME)
             {
