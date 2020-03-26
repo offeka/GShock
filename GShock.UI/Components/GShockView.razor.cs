@@ -10,8 +10,7 @@ namespace GShock.UI.Components
 {
     public partial class GShockView
     {
-        [Inject]
-        public NavigationManager Manager { get; set; }
+        [Inject] public NavigationManager Manager { get; set; }
 
         private Dictionary<ButtonType, DateTime> _clickTimes;
 

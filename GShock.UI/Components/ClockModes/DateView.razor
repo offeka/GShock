@@ -1,0 +1,16 @@
+﻿@using GShock.BLL.Modes
+@inject DateMode Mode
+@page "/Date"
+
+<h2 class="text-center border rounded text-muted clock-time">@DisplayDate()</h2>
+
+@code
+{
+    private string DisplayDate() => Mode.Date.ToString(@"dd/MM/yyyy");
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Mode.OnChanged += async () => { await InvokeAsync(StateHasChanged); };
+    }
+}

@@ -15,6 +15,12 @@ namespace GShock.BLL.ExtensionMethods
             var timerMode = new TimerMode();
             serviceCollection.AddSingleton<IClockMode>(timerMode);
             serviceCollection.AddSingleton(timerMode);
+            var dateMode = new DateMode();
+            serviceCollection.AddSingleton<IClockMode>(dateMode);
+            serviceCollection.AddSingleton(dateMode);
+            var stopperMode = new StopperMode();
+            serviceCollection.AddSingleton<IClockMode>(stopperMode);
+            serviceCollection.AddSingleton(stopperMode);
             return serviceCollection;
         }
     }

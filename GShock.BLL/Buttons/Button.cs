@@ -22,7 +22,7 @@ namespace GShock.BLL.Buttons
         public void Unsubscribe(Action<TimeSpan> buttonAction)
         {
             List<Action<TimeSpan>> actionList = _actionStore.ToList();
-            actionList.ToList().Remove(buttonAction);
+            actionList.Remove(buttonAction);
             _actionStore = new Stack<Action<TimeSpan>>(actionList);
         }
 
